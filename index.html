@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Title -->
     <title>Kavak Culture - Wholesome Goodness, Naturally</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +12,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { 'sans': ['Inter', 'sans-serif'] },
                     colors: {
                         'brand-green': '#4A6B4C',
                         'brand-light-green': '#89A88A',
@@ -26,7 +23,6 @@
         }
     </script>
     <style>
-        /* Simple scrollbar styling for a more modern look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #89A88A; border-radius: 10px; }
@@ -35,19 +31,17 @@
 </head>
 <body class="bg-brand-off-white text-gray-800 font-sans">
 
-    <!-- Audio elements for each section -->
+    <!-- Audio elements -->
     <audio id="home-audio" src="cinematic-handpan-100bpm-25170.mp3" loop></audio>
     <audio id="about-audio" src="santoor_85_bpm-343150.mp3" loop></audio>
     <audio id="products-audio" src="birds-ambiance-204513.mp3" loop></audio>
     <audio id="visit-audio" src="nature-216798.mp3" loop></audio>
-    <!-- Updated audio file path for contact section -->
     <audio id="contact-audio" src="ElevenLabs_2025-09-29T06_53_15_Aria_pre_sp100_s50_sb75_v3 (2).mp3"></audio>
 
     <!-- Header -->
     <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#home" class="flex items-center space-x-2">
-                <!-- Updated alt text -->
                 <img src="Gayatrilogo.jpg" alt="Kavak Culture Logo" class="h-12 w-auto">
             </a>
             <div class="hidden md:flex items-center space-x-8">
@@ -56,12 +50,17 @@
                 <a href="#products" class="text-gray-600 hover:text-brand-green transition">Products</a>
                 <a href="#visit" class="text-gray-600 hover:text-brand-green transition">Book a Visit</a>
                 <a href="#contact" class="text-gray-600 hover:text-brand-green transition">Contact</a>
+                 <!-- Link to Cart Page -->
+                 <a href="cart.html" class="text-gray-600 hover:text-brand-green transition">Cart</a>
+                 <!-- Link to Login Page -->
+                 <a href="login.html" class="text-gray-600 hover:text-brand-green transition">Login</a>
             </div>
             <div class="flex items-center">
                 <button id="mute-button" class="relative p-2 rounded-full hover:bg-gray-100 transition mr-2">
-                    <!-- Mute/Unmute Icon will be inserted here by JS -->
+                    <!-- Mute/Unmute Icon -->
                 </button>
-                <button id="cart-button" class="relative p-2 rounded-full hover:bg-gray-100 transition">
+                <!-- Cart button opens the modal -->
+                <button id="cart-modal-button" class="relative p-2 rounded-full hover:bg-gray-100 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -81,16 +80,17 @@
             <a href="#products" class="block text-gray-600 hover:text-brand-green transition">Products</a>
             <a href="#visit" class="block text-gray-600 hover:text-brand-green transition">Book a Visit</a>
             <a href="#contact" class="block text-gray-600 hover:text-brand-green transition">Contact</a>
+            <a href="cart.html" class="block text-gray-600 hover:text-brand-green transition">Cart</a>
+            <a href="login.html" class="block text-gray-600 hover:text-brand-green transition">Login</a>
         </div>
     </header>
 
     <main>
         <!-- Home Section -->
         <section id="home" class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('Gayatribg.jpg');">
-             <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 bg-black/40"></div>
             <div class="relative text-center text-white p-8">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Straight From Our Farm to Your Table</h1>
-                <!-- Updated Slogan -->
                 <p class="text-lg md:text-2xl mb-8 drop-shadow-md">Kavak Culture: Wholesome Goodness, Naturally.</p>
                 <a href="#products" class="bg-brand-green hover:bg-brand-light-green text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">Explore Our Harvest</a>
             </div>
@@ -99,38 +99,16 @@
         <!-- About Section -->
         <section id="about" class="relative py-16 md:py-24 text-white overflow-hidden">
             <video autoplay loop muted playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none">
-                <source src="Rooted with passion.mp4" type="video/mp4">
-                Your browser does not support the video tag.
+                <source src="Rooted with passion.mp4" type="video/mp4"> Your browser does not support the video tag.
             </video>
             <div class="absolute inset-0 bg-brand-green/70 z-0"></div>
             <div class="container mx-auto px-6 text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Rooted in Passion, Grown with Purpose</h2>
-                <p class="max-w-3xl mx-auto text-gray-200 mb-12">
-                    <!-- Updated Company Name -->
-                    At Kavak Culture, we're a new generation of farmers blending technology and tradition. Our passion for sustainable agriculture drives us to create eco-friendly solutions, delivering the freshest, most nutritious organic produce directly to your family. We believe in nurturing our soil and conserving resources for a healthier planet and a healthier you.
-                </p>
+                <p class="max-w-3xl mx-auto text-gray-200 mb-12"> At Kavak Culture, we're a new generation of farmers blending technology and tradition...</p>
                 <div class="grid md:grid-cols-3 gap-12">
-                    <div class="p-6">
-                        <div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-white/20">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 01-9-9 9 9 0 019-9m9 9a9 9 0 01-9 9"/></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">100% Organic</h3>
-                        <p class="text-gray-300">Grown naturally without synthetic pesticides or fertilizers, for pure, unadulterated flavor.</p>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-white/20">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16h16V4H4zm8 12l-3-3 1.5-1.5L12 13l4.5-4.5L18 10l-6 6z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Sustainably Farmed</h3>
-                        <p class="text-gray-300">We use data-driven techniques to conserve water, nurture soil health, and protect our ecosystem.</p>
-                    </div>
-                    <div class="p-6">
-                         <div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-white/20">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2">Harvested Fresh</h3>
-                        <p class="text-gray-300">Hand-picked at the peak of freshness to ensure the best taste and nutritional value for you.</p>
-                    </div>
+                    <div class="p-6"> <div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-white/20"> <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 01-9-9 9 9 0 019-9m9 9a9 9 0 01-9 9"/></svg> </div> <h3 class="text-xl font-semibold mb-2">100% Organic</h3> <p class="text-gray-300">Grown naturally...</p> </div>
+                    <div class="p-6"> <div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-white/20"> <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v16h16V4H4zm8 12l-3-3 1.5-1.5L12 13l4.5-4.5L18 10l-6 6z"/></svg> </div> <h3 class="text-xl font-semibold mb-2">Sustainably Farmed</h3> <p class="text-gray-300">We use data-driven techniques...</p> </div>
+                    <div class="p-6"> <div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-white/20"> <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> </div> <h3 class="text-xl font-semibold mb-2">Harvested Fresh</h3> <p class="text-gray-300">Hand-picked at the peak...</p> </div>
                 </div>
             </div>
         </section>
@@ -139,30 +117,23 @@
         <section id="products" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center text-brand-green mb-12">Our Fresh, Organic Offerings</h2>
-                <!-- Product list will be dynamically inserted here from Supabase -->
                 <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Loading Spinner (optional, but good UX) -->
                     <div id="products-loading" class="sm:col-span-2 lg:col-span-4 text-center text-gray-500">
-                        <svg class="animate-spin h-8 w-8 text-brand-green mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
+                        <svg class="animate-spin h-8 w-8 text-brand-green mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"> <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path> </svg>
                         <p class="mt-2">Loading our fresh harvest...</p>
                     </div>
+                    <!-- Product cards are rendered here by JS -->
                 </div>
             </div>
         </section>
 
-        <!-- Book a Visit Section (Updated for Calendly) -->
+        <!-- Book a Visit Section -->
         <section id="visit" class="py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold text-center text-brand-green mb-4">Come See How the Goodness Grows!</h2>
-                    <!-- Updated Company Name -->
-                    <p class="text-center text-gray-600 mb-8">Experience the magic of organic farming firsthand. Book a tour of the Kavak Culture farm today.</p>
-                    <a href="https://calendly.com/sachingayatri-mali/30min" target="_blank" rel="noopener noreferrer" class="inline-block w-full max-w-xs bg-brand-green hover:bg-brand-light-green text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-                        Schedule Your Visit
-                    </a>
+                    <p class="text-center text-gray-600 mb-8">Experience the magic of organic farming firsthand...</p>
+                    <a href="https://calendly.com/sachingayatri-mali/30min" target="_blank" rel="noopener noreferrer" class="inline-block w-full max-w-xs bg-brand-green hover:bg-brand-light-green text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105"> Schedule Your Visit </a>
                 </div>
             </div>
         </section>
@@ -177,30 +148,9 @@
                     </div>
                     <div class="md:w-1/2 flex flex-col justify-center">
                         <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-brand-light-green/20 p-3 rounded-full text-brand-green"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-                                <div>
-                                    <h4 class="font-semibold text-lg">Our Location</h4>
-                                    <!-- Updated Location -->
-                                    <p class="text-gray-600">Kuchi, Sangli, Maharashtra 416405, India</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-brand-light-green/20 p-3 rounded-full text-brand-green"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                                <div>
-                                    <h4 class="font-semibold text-lg">Email Us</h4>
-                                    <!-- Updated Email -->
-                                    <p class="text-gray-600">teammo.and.co@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-brand-light-green/20 p-3 rounded-full text-brand-green"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
-                                <div>
-                                    <h4 class="font-semibold text-lg">Call Us</h4>
-                                    <!-- Updated Phone -->
-                                    <p class="text-gray-600">+91 7498017600</p>
-                                </div>
-                            </div>
+                            <div class="flex items-start space-x-4"> <div class="bg-brand-light-green/20 p-3 rounded-full text-brand-green"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div> <div> <h4 class="font-semibold text-lg">Our Location</h4> <p class="text-gray-600">Kuchi, Sangli, Maharashtra 416405, India</p> </div> </div>
+                            <div class="flex items-start space-x-4"> <div class="bg-brand-light-green/20 p-3 rounded-full text-brand-green"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div> <div> <h4 class="font-semibold text-lg">Email Us</h4> <p class="text-gray-600">teammo.and.co@gmail.com</p> </div> </div>
+                            <div class="flex items-start space-x-4"> <div class="bg-brand-light-green/20 p-3 rounded-full text-brand-green"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div> <div> <h4 class="font-semibold text-lg">Call Us</h4> <p class="text-gray-600">+91 7498017600</p> </div> </div>
                         </div>
                     </div>
                 </div>
@@ -212,7 +162,6 @@
     <footer class="bg-brand-green text-white">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <!-- Updated Copyright -->
                 <p>&copy; 2025 Kavak Culture. All Rights Reserved.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-brand-light-green transition">Facebook</a>
@@ -224,34 +173,33 @@
     </footer>
 
     <!-- Cart Modal -->
-    <div id="cart-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center">
+    <div id="cart-modal" class="fixed inset-0 bg-black/60 z-[60] hidden flex items-center justify-center">
         <div id="cart-modal-content" class="bg-white rounded-lg shadow-xl w-full max-w-lg mx-4 transform transition-all opacity-0 -translate-y-10">
-            <!-- Modal Header -->
             <div class="flex justify-between items-center p-5 border-b">
                 <h3 class="text-xl font-semibold text-gray-800">Your Shopping Cart</h3>
-                <button id="close-cart-button" class="text-gray-500 hover:text-gray-800">&times;</button>
+                <button id="close-cart-button" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
             </div>
-            <!-- Modal Body -->
-            <div id="cart-items" class="p-5 max-h-96 overflow-y-auto">
-                <!-- Cart items will be here -->
-                <p id="cart-empty-message" class="text-center text-gray-500">Your cart is empty.</p>
+            <div id="modal-cart-items" class="p-5 max-h-60 overflow-y-auto">
+                <p id="modal-cart-empty-message" class="text-center text-gray-500">Your cart is empty.</p>
+                <!-- Items added by JS -->
             </div>
-            <!-- Modal Footer -->
-            <div id="cart-footer" class="p-5 border-t">
+            <div id="modal-cart-footer" class="p-5 border-t">
                  <div class="flex justify-between items-center font-bold text-lg mb-4">
-                     <span>Total</span>
-                     <span id="cart-total">₹0.00</span>
+                     <span>Subtotal</span>
+                     <span id="modal-cart-total">₹0.00</span>
                  </div>
-                 <button class="w-full bg-brand-green hover:bg-brand-light-green text-white font-bold py-3 rounded-lg transition duration-300">Proceed to Checkout</button>
+                 <!-- Updated Button to link to cart.html -->
+                 <a href="cart.html" class="block text-center w-full bg-brand-green hover:bg-brand-light-green text-white font-bold py-3 rounded-lg transition duration-300">
+                     Go to Cart & Checkout
+                 </a>
             </div>
         </div>
     </div>
 
     <!-- Notification Toast -->
-    <div id="notification-toast" class="fixed bottom-5 right-5 bg-brand-green text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-[120%] transition-transform duration-500 ease-in-out">
+    <div id="notification-toast" class="fixed bottom-5 right-5 bg-brand-green text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-[120%] transition-transform duration-500 ease-in-out z-[70]">
         Notification message
     </div>
-
 
     <!-- Supabase Client Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -260,335 +208,307 @@
         document.addEventListener('DOMContentLoaded', () => {
 
             // --- SUPABASE CLIENT INITIALIZATION ---
-            const SUPABASE_URL = 'https://rdgibagwcenwthrcsllp.supabase.co'; 
+            const SUPABASE_URL = 'https://rdgibagwcenwthrcsllp.supabase.co';
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkZ2liYWd3Y2Vud3RocmNzbGxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExMDE5MTIsImV4cCI6MjA3NjY3NzkxMn0.d5CthwkuclqKk1z7gjwsgaP0P53q2dFya5k5fRNAxAY';
 
             if (!window.supabase) {
                 console.error("Supabase client library is not loaded.");
-                alert("Error: Could not connect to the database. Please check your internet connection and try again.");
-                return;
+                alert("Error: Could not connect to the database..."); return;
             }
-            
             const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
-            // --- DATA ---
+            // --- STATE ---
             let products = [];
-            let cart = [];
+            // Load cart from local storage
+            let cart = JSON.parse(localStorage.getItem('kavakCart')) || [];
 
             // --- ELEMENTS ---
             const productList = document.getElementById('product-list');
             const productsLoading = document.getElementById('products-loading');
-            const cartButton = document.getElementById('cart-button');
-            const cartModal = document.getElementById('cart-modal');
-            const cartModalContent = document.getElementById('cart-modal-content');
-            const closeCartButton = document.getElementById('close-cart-button');
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartCount = document.getElementById('cart-count');
-            const cartTotal = document.getElementById('cart-total');
-            const cartEmptyMessage = document.getElementById('cart-empty-message');
-            const cartFooter = document.getElementById('cart-footer');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const notificationToast = document.getElementById('notification-toast');
 
-            // --- AUDIO ---
+            // Cart Modal Elements
+            const cartNavButton = document.getElementById('cart-modal-button'); // Corrected ID
+            const cartCount = document.getElementById('cart-count');
+            const cartModal = document.getElementById('cart-modal');
+            const cartModalContent = document.getElementById('cart-modal-content');
+            const closeCartButton = document.getElementById('close-cart-button');
+            const modalCartItems = document.getElementById('modal-cart-items');
+            const modalCartTotal = document.getElementById('modal-cart-total');
+            const modalCartEmpty = document.getElementById('modal-cart-empty-message');
+            const modalCartFooter = document.getElementById('modal-cart-footer');
+            // const modalCheckoutBtn = document.getElementById('modal-checkout-btn'); // Button is now an <a> tag
+
+            // --- AUDIO ELEMENTS ---
             const muteButton = document.getElementById('mute-button');
             const allAudio = document.querySelectorAll('audio');
             let isMuted = true;
-            let currentAudio = null; 
-            let audioUnlocked = false; 
+            let currentAudio = null;
+            let audioUnlocked = false;
             const unmuteIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>`;
             const muteIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2 2m2-2l2 2" /></svg>`;
 
-            // --- FUNCTIONS ---
-            
-            async function fetchProducts() {
-                const { data, error } = await supabaseClient
-                    .from('products') // Assuming you fixed the case-sensitivity issue in Supabase
-                    .select('*');
+            // --- CORE FUNCTIONS ---
 
+            async function fetchProducts() {
+                if (productsLoading) productsLoading.style.display = 'block';
+                const { data, error } = await supabaseClient.from('products').select('*');
+                if (productsLoading) productsLoading.style.display = 'none';
                 if (error) {
                     console.error('Error fetching products:', error);
                     productList.innerHTML = `<p class="text-red-500 text-center col-span-full">Error loading products. Please try again later.</p>`;
-                    if(productsLoading) productsLoading.classList.add('hidden');
                     return;
                 }
-
-                products = data;
+                products = data || []; // Ensure products is always an array
                 renderProducts();
             }
 
-            function showNotification(message) {
-                notificationToast.textContent = message;
-                notificationToast.classList.remove('translate-x-[120%]');
-                setTimeout(() => {
-                    notificationToast.classList.add('translate-x-[120%]');
-                }, 3000); 
+            function showNotification(message, isError = false) {
+                 notificationToast.textContent = message;
+                 notificationToast.classList.remove('translate-x-[120%]');
+                 notificationToast.classList.toggle('bg-red-500', isError);
+                 notificationToast.classList.toggle('bg-brand-green', !isError);
+                 setTimeout(() => notificationToast.classList.add('translate-x-[120%]'), 3000);
             }
+
+            // --- RENDER FUNCTIONS ---
 
             function renderProducts() {
-                if(productsLoading) productsLoading.classList.add('hidden');
-                productList.innerHTML = ''; 
-                
-                if (products.length === 0) {
-                     productList.innerHTML = `<p class="text-gray-500 text-center col-span-full">No products are available at this time.</p>`;
-                     return;
-                }
-                
-                products.forEach(product => {
-                    // Check for case-sensitivity on price
-                    const price = product.price || product.Price || 0; 
-                    const name = product.name || product.Name || 'Unnamed Product';
-                    const description = product.description || product.Description || 'No description available.';
-                    
-                    const productCard = `
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                            <img src="${product.image}" alt="${name}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x300/EAF0E5/4A6B4C?text=${encodeURIComponent(name)}';">
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">${name}</h3>
-                                <p class="text-gray-500 mb-4">${description}</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-brand-green">₹${price.toFixed(2)}/pack</span>
-                                    <button data-product-id="${product.id}" class="add-to-cart-btn bg-brand-green text-white px-4 py-2 rounded-full hover:bg-brand-light-green transition text-sm font-semibold">
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    productList.innerHTML += productCard;
-                });
+                 if(productsLoading) productsLoading.style.display = 'none';
+                 productList.innerHTML = '';
+                 if (!products || products.length === 0) {
+                      productList.innerHTML = `<p class="text-gray-500 text-center col-span-full">No products are available at this time.</p>`; return;
+                 }
+                 products.forEach(product => {
+                     const price = product.price || product.Price || 0;
+                     const name = product.name || product.Name || 'Unnamed Product';
+                     const description = product.description || product.Description || 'No description available.';
+                     const image = product.image || '';
+
+                     const productCard = `
+                         <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition duration-300 flex flex-col">
+                             <img src="${image}" alt="${name}" class="w-full h-48 object-cover"
+                                  onerror="this.onerror=null; this.src='https://placehold.co/400x300/EAF0E5/4A6B4C?text=${encodeURIComponent(name)}';">
+                             <div class="p-6 flex flex-col flex-grow">
+                                 <h3 class="text-xl font-semibold mb-2">${name}</h3>
+                                 <p class="text-gray-500 mb-4 flex-grow">${description}</p>
+                                 <div class="flex justify-between items-center mb-4">
+                                     <span class="text-lg font-bold text-brand-green">₹${Number(price).toFixed(2)}/pack</span>
+                                 </div>
+                                 <div class="grid grid-cols-2 gap-2 mt-auto">
+                                     <button data-product-id="${product.id}" class="add-to-cart-btn bg-brand-green text-white px-4 py-2 rounded-full hover:bg-brand-light-green transition text-sm font-semibold">
+                                         Add to Cart
+                                     </button>
+                                     <button data-product-id="${product.id}" class="buy-now-btn bg-white border border-brand-green text-brand-green px-4 py-2 rounded-full hover:bg-brand-green hover:text-white transition text-sm font-semibold">
+                                         Buy Now
+                                     </button>
+                                 </div>
+                             </div>
+                         </div>`;
+                     productList.innerHTML += productCard;
+                 });
             }
 
-            function updateCartUI() {
-                cartItemsContainer.innerHTML = '';
+            function renderCartModal() { // Renamed from renderCart
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+
+                const totalPrice = cart.reduce((sum, item) => {
+                    const price = item.price || item.Price || 0;
+                    return sum + Number(price) * item.quantity;
+                }, 0);
+
+                modalCartTotal.textContent = `₹${totalPrice.toFixed(2)}`;
+                modalCartItems.innerHTML = ''; // Clear only modal items
+
                 if (cart.length === 0) {
-                    cartEmptyMessage.classList.remove('hidden');
-                    cartFooter.classList.add('hidden');
+                    modalCartEmpty.style.display = 'block';
+                    modalCartFooter.style.display = 'none';
                 } else {
-                    cartEmptyMessage.classList.add('hidden');
-                    cartFooter.classList.remove('hidden');
+                    modalCartEmpty.style.display = 'none';
+                    modalCartFooter.style.display = 'block';
+
                     cart.forEach(item => {
                         const price = item.price || item.Price || 0;
                         const name = item.name || item.Name || 'Unnamed Product';
-                        
+                        const image = item.image || '';
+
                         const cartItemHTML = `
                             <div class="flex items-center justify-between py-4 border-b last:border-b-0">
                                 <div class="flex items-center space-x-4">
-                                    <img src="${item.image}" alt="${name}" class="w-16 h-16 object-cover rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EAF0E5/4A6B4C?text=${encodeURIComponent(name)}';">
+                                    <img src="${image}" alt="${name}" class="w-16 h-16 object-cover rounded-md"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/EAF0E5/4A6B4C?text=${encodeURIComponent(name)}';">
                                     <div>
                                         <h4 class="font-semibold">${name}</h4>
-                                        <p class="text-sm text-gray-500">₹${price.toFixed(2)}</p>
+                                        <p class="text-sm text-gray-500">₹${Number(price).toFixed(2)}</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3">
                                     <button data-id="${item.id}" class="quantity-change-btn p-1 rounded-full bg-gray-200 hover:bg-gray-300">-</button>
                                     <span>${item.quantity}</span>
                                     <button data-id="${item.id}" class="quantity-change-btn p-1 rounded-full bg-gray-200 hover:bg-gray-300">+</button>
-                                    <button data-id="${item.id}" class="remove-item-btn text-red-500 hover:text-red-700">&times;</button>
+                                    <button data-id="${item.id}" class="remove-item-btn text-red-500 hover:text-red-700 text-xl font-bold">&times;</button>
                                 </div>
-                            </div>
-                        `;
-                        cartItemsContainer.innerHTML += cartItemHTML;
+                            </div>`;
+                        modalCartItems.innerHTML += cartItemHTML;
                     });
                 }
+            }
 
-                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                cartCount.textContent = totalItems;
-
-                const totalPrice = cart.reduce((sum, item) => {
-                    const price = item.price || item.Price || 0;
-                    return sum + price * item.quantity;
-                }, 0);
-                cartTotal.textContent = `₹${totalPrice.toFixed(2)}`;
+            // --- CART ACTIONS ---
+            function saveCart() {
+                localStorage.setItem('kavakCart', JSON.stringify(cart));
             }
 
             function addToCart(productId) {
-                const product = products.find(p => p.id === productId);
-                if (!product) {
-                    console.error("Product not found:", productId);
-                    return;
-                }
-                
-                const cartItem = cart.find(item => item.id === productId);
-                const name = product.name || product.Name || 'Product';
+                 if (!products || products.length === 0) { console.error("Products not loaded yet."); return; }
+                 const product = products.find(p => p.id == productId);
+                 if (!product) { console.error("Product not found:", productId); return; }
 
-                if (cartItem) {
+                 const cartItem = cart.find(item => item.id == productId);
+                 const name = product.name || product.Name || 'Product';
+                 if (cartItem) {
                     cartItem.quantity++;
-                } else {
-                    cart.push({ ...product, quantity: 1 });
-                }
-                updateCartUI();
-                showNotification(`Added ${name} to cart!`);
+                 } else {
+                     cart.push({
+                         id: product.id,
+                         name: product.name || product.Name,
+                         price: product.price || product.Price,
+                         image: product.image,
+                         quantity: 1
+                    });
+                 }
+                 saveCart();
+                 renderCartModal(); // Update modal UI
+                 showNotification(`Added ${name} to cart!`);
             }
-            
             function changeQuantity(productId, operation) {
-                const cartItem = cart.find(item => item.id === productId);
-                if (!cartItem) return;
-                
-                if (operation === '+') {
+                 const cartItem = cart.find(item => item.id == productId);
+                 if (!cartItem) return;
+                 if (operation === '+') {
                     cartItem.quantity++;
-                } else if (operation === '-') {
-                    cartItem.quantity--;
-                    if (cartItem.quantity === 0) {
-                        removeItem(productId);
-                    }
-                }
-                updateCartUI();
+                 } else if (operation === '-') {
+                     cartItem.quantity--;
+                     if (cartItem.quantity <= 0) {
+                         removeItem(productId);
+                         return;
+                     }
+                 }
+                 saveCart();
+                 renderCartModal(); // Update modal UI
             }
-            
             function removeItem(productId) {
-                cart = cart.filter(item => item.id !== productId);
-                updateCartUI();
+                 cart = cart.filter(item => item.id != productId);
+                 saveCart();
+                 renderCartModal(); // Update modal UI
             }
 
+            // --- MODAL & PAGE NAVIGATION ---
             function showCartModal() {
-                cartModal.classList.remove('hidden');
-                setTimeout(() => {
-                    cartModalContent.classList.remove('opacity-0', '-translate-y-10');
-                    cartModalContent.classList.add('opacity-100', 'translate-y-0');
-                }, 10);
+                 renderCartModal(); // Update content before showing
+                 cartModal.classList.remove('hidden');
+                 cartModalContent.classList.remove('opacity-0', '-translate-y-10');
+                 cartModalContent.classList.add('opacity-100', 'translate-y-0');
             }
-            
             function hideCartModal() {
                  cartModalContent.classList.add('opacity-0', '-translate-y-10');
                  cartModalContent.classList.remove('opacity-100', 'translate-y-0');
                  setTimeout(() => cartModal.classList.add('hidden'), 300);
             }
-            
-            function updateMuteButton() {
-                muteButton.innerHTML = isMuted ? muteIcon : unmuteIcon;
-            }
 
-            function pauseAllAudio() {
-                allAudio.forEach(audio => {
-                    audio.pause();
-                    audio.currentTime = 0;
+            // --- AUDIO FUNCTIONS ---
+            function updateMuteButton() { muteButton.innerHTML = isMuted ? muteIcon : unmuteIcon; }
+            function pauseAllAudio() { allAudio.forEach(audio => { audio.pause(); if (!audio.loop) audio.currentTime = 0; }); }
+
+            // --- EVENT LISTENERS ---
+
+            // Product Interactions
+            productList.addEventListener('click', (e) => {
+                 const addBtn = e.target.closest('.add-to-cart-btn');
+                 if (addBtn) { const productId = parseInt(addBtn.dataset.productId); addToCart(productId); return; }
+                 const buyBtn = e.target.closest('.buy-now-btn');
+                 if (buyBtn) {
+                    const productId = parseInt(buyBtn.dataset.productId);
+                    addToCart(productId); // Add to cart
+                    window.location.href = 'cart.html'; // Go directly to cart page
+                    return;
+                 }
+            });
+
+            // Cart Modal Interactions (Quantity/Remove)
+            if (modalCartItems) {
+                modalCartItems.addEventListener('click', e => {
+                    const removeBtn = e.target.closest('.remove-item-btn[data-id]');
+                    if (removeBtn) { const productId = parseInt(removeBtn.dataset.id); if (!isNaN(productId)) removeItem(productId); return; }
+                    const quantityBtn = e.target.closest('.quantity-change-btn[data-id]');
+                    if(quantityBtn) { const productId = parseInt(quantityBtn.dataset.id); const operation = quantityBtn.textContent.trim(); if (!isNaN(productId) && (operation === '+' || operation === '-')) changeQuantity(productId, operation); return; }
                 });
             }
 
-            // --- EVENT LISTENERS ---
-            productList.addEventListener('click', (e) => {
-                if (e.target.classList.contains('add-to-cart-btn')) {
-                    const productId = parseInt(e.target.dataset.productId);
-                    addToCart(productId);
-                }
-            });
+            // Cart Modal Controls
+            if (cartNavButton) cartNavButton.addEventListener('click', showCartModal);
+            if (closeCartButton) closeCartButton.addEventListener('click', hideCartModal);
+            if (cartModal) cartModal.addEventListener('click', (e) => { if (e.target === cartModal) hideCartModal(); });
+            // Note: The checkout button in the modal is now an <a> tag, handled by browser navigation
 
-            cartItemsContainer.addEventListener('click', e => {
-                const target = e.target;
-                
-                const removeBtn = target.closest('.remove-item-btn');
-                if (removeBtn) {
-                    const productId = parseInt(removeBtn.dataset.id);
-                    removeItem(productId);
-                    return;
-                }
+            // Mobile Menu
+            if (mobileMenuButton) mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-                const quantityBtn = target.closest('.quantity-change-btn');
-                if(quantityBtn) {
-                    const productId = parseInt(quantityBtn.dataset.id);
-                    const operation = quantityBtn.textContent;
-                    changeQuantity(productId, operation);
-                    return;
-                }
-            });
-
-            cartButton.addEventListener('click', showCartModal);
-            closeCartButton.addEventListener('click', hideCartModal);
-            cartModal.addEventListener('click', (e) => {
-                if (e.target === cartModal) {
-                    hideCartModal();
-                }
-            });
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
+            // Smooth Scroll for Nav Links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
-                    if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
-                    }
+                    if (!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); }
                 });
             });
 
-            muteButton.addEventListener('click', () => {
-                if (!audioUnlocked) {
-                    allAudio.forEach(audio => {
-                        const playPromise = audio.play();
-                        if (playPromise !== undefined) {
-                            playPromise.then(_ => {
-                                audio.pause();
-                            }).catch(error => {
-                                console.log("Audio unlock play failed for one audio, this is normal.", error);
-                            });
-                        }
-                    });
-                    audioUnlocked = true;
-                    console.log("Audio unlocked by user interaction.");
-                }
+            // Audio Controls
+             if (muteButton) {
+                 muteButton.addEventListener('click', () => {
+                     if (!audioUnlocked) {
+                         Promise.all(Array.from(allAudio).map(audio => audio.play().then(() => audio.pause()).catch(() => {})))
+                         .then(() => { audioUnlocked = true; console.log("Audio unlocked."); toggleMuteState(); });
+                     } else { toggleMuteState(); }
+                 });
+             }
 
+            function toggleMuteState() {
                 isMuted = !isMuted;
-                // --- FIX 1 ---
-                updateMuteButton(); 
+                updateMuteButton();
+                if (isMuted) { pauseAllAudio(); }
+                else { if (currentAudio) currentAudio.play().catch(e => console.error("Audio play failed:", e)); }
+            }
 
-                if (isMuted) {
-                    pauseAllAudio();
-                } else {
-                    if (currentAudio) {
-                        currentAudio.play().catch(e => console.error("Audio play failed:", e));
-                    }
-                }
-            });
-            
-            const sections = document.querySelectorAll('main section');
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.5 
-            };
-
+            // Intersection Observer for Audio Sections
+            const shopSections = document.querySelectorAll('main section[id]');
+            const observerOptions = { threshold: 0.5 };
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     const audioId = `${entry.target.id}-audio`;
                     const audio = document.getElementById(audioId);
                     if (!audio) return;
-
                     if (entry.isIntersecting) {
-                        pauseAllAudio();
-                        currentAudio = audio;
-                        // --- TYPO FIX ---
-                        // Changed isMMuted to isMuted
+                        if (currentAudio !== audio) { pauseAllAudio(); currentAudio = audio; }
                         if (!isMuted && audioUnlocked) {
-                            currentAudio.currentTime = 0;
-                            currentAudio.play().catch(e => console.error("Autoplay was prevented.", e));
+                             if (currentAudio.paused) currentAudio.currentTime = 0;
+                            currentAudio.play().catch(e => console.error("Autoplay failed.", e));
                         }
-                    }
+                    } else { if (currentAudio === audio) audio.pause(); }
                 });
             }, observerOptions);
-
-            sections.forEach(section => {
-                sectionObserver.observe(section);
-            });
-
+            shopSections.forEach(section => sectionObserver.observe(section));
 
             // --- INITIALIZATION ---
-            fetchProducts();
-            updateCartUI();
-            
-            // --- FIX 2 ---
-            updateMuteButton();
-
+            fetchProducts(); // Start fetching products
+            renderCartModal(); // Render cart from local storage immediately
+            updateMuteButton(); // Set initial mute icon
         });
     </script>
 </body>

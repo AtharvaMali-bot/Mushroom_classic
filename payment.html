@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Kavak Culture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'sans': ['Inter', 'sans-serif'] },
+                    colors: {
+                        'brand-green': '#4A6B4C',
+                        'brand-light-green': '#89A88A',
+                        'brand-off-white': '#F8F7F4',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Add styles for payment provider integration if needed */
+        #payment-element { /* Example ID for Stripe Elements */
+          margin-bottom: 24px;
+        }
+        .payment-error {
+            color: rgb(105, 115, 134);
+            font-size: 14px;
+            line-height: 20px;
+            padding-top: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-brand-off-white">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Gayatrilogo.jpg" alt="Kavak Culture Logo" class="h-12 w-auto">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-brand-green transition">Home</a>
+                <a href="cart.html" class="text-gray-600 hover:text-brand-green transition">Back to Cart</a>
+                 <!-- Optional: Add Auth Status/Logout -->
+                 <span id="auth-status" class="text-gray-600"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <a href="cart.html" class="mb-8 inline-block text-brand-green hover:text-brand-light-green transition font-semibold">
+                &larr; Back to Cart
+            </a>
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">Payment & Shipping</h1>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Payment Form & Shipping -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <form id="payment-form" class="space-y-6">
+                        <!-- Shipping Information -->
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4">Shipping Information</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Full Name</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="name" type="text" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email Address</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="email" type="email" required>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Shipping Address</label>
+                                    <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="address" rows="3" required></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone Number</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="phone" type="tel" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Details -->
+                        <div>
+                            <h2 class="text-xl font-semibold mb-4">Payment Details</h2>
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
+                                <p class="font-bold">Important Security Notice</p>
+                                <p>For your security, please integrate a secure payment provider like Stripe or Razorpay. Do not collect sensitive card details directly in this form in production.</p>
+                            </div>
+
+                            <!-- Placeholder for Secure Payment Element (e.g., Stripe Elements) -->
+                            <div id="payment-element-placeholder" class="p-4 border border-dashed border-gray-400 rounded-md text-center text-gray-500">
+                                Secure Payment Element (e.g., Stripe, Razorpay) should be mounted here.
+                                <div id="payment-element"></div> <!-- Example Stripe Element container -->
+                                <div id="payment-message" class="payment-error hidden"></div> <!-- For Stripe errors -->
+                            </div>
+
+                            <!--
+                            WARNING: DO NOT USE THIS FORM IN PRODUCTION.
+                            This is insecure and violates PCI compliance.
+                            <div class="space-y-4 mt-4">
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="card-number">Card Number</label>
+                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="card-number" type="text" placeholder="**** **** **** ****" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-gray-700 text-sm font-bold mb-2" for="expiry">Expiry Date</label>
+                                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="expiry" type="text" placeholder="MM/YY" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 text-sm font-bold mb-2" for="cvv">CVV</label>
+                                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="cvv" type="text" placeholder="***" required>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+
+                        <!-- Submit button - Will trigger payment provider logic -->
+                        <button id="submit-payment-button" type="submit" class="w-full bg-brand-green text-white py-3 rounded-md hover:bg-brand-light-green transition disabled:opacity-50" disabled>
+                            <span id="button-text">Pay Now</span>
+                            <span id="spinner" class="hidden">Processing...</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md sticky top-28">
+                        <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+                        <div id="order-items" class="space-y-4 mb-4 max-h-64 overflow-y-auto border-b pb-4">
+                            <!-- Order items will be dynamically inserted here -->
+                             <p id="order-empty-message" class="text-gray-500">Loading cart...</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>Subtotal</span>
+                                <span id="subtotal">₹0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Shipping</span>
+                                <span id="shipping">₹0.00</span>
+                            </div>
+                            <div class="border-t pt-2 mt-2">
+                                <div class="flex justify-between font-bold text-lg">
+                                    <span>Total</span>
+                                    <span id="total">₹0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Placeholder for Payment Provider SDK (e.g., Stripe.js) -->
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+
+    <script>
+        // --- SUPABASE CLIENT INITIALIZATION ---
+        const SUPABASE_URL = 'https://rdgibagwcenwthrcsllp.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkZ2liYWd3Y2Vud3RocmNzbGxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExMDE5MTIsImV4cCI6MjA3NjY3NzkxMn0.d5CthwkuclqKk1z7gjwsgaP0P53q2dFya5k5fRNAxAY';
+
+        if (!window.supabase) { console.error("Supabase not loaded"); }
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // --- ELEMENTS ---
+        const orderItemsContainer = document.getElementById('order-items');
+        const orderEmptyMessage = document.getElementById('order-empty-message');
+        const subtotalEl = document.getElementById('subtotal');
+        const shippingEl = document.getElementById('shipping');
+        const totalEl = document.getElementById('total');
+        const paymentForm = document.getElementById('payment-form');
+        const paymentButton = document.getElementById('submit-payment-button');
+        const paymentMessage = document.getElementById('payment-message'); // For Stripe errors
+        const authStatusEl = document.getElementById('auth-status');
+
+
+        // --- CART DATA --- (Loaded from localStorage)
+        const cart = JSON.parse(localStorage.getItem('kavakCart')) || [];
+
+        // --- FUNCTIONS ---
+        function updateOrderSummary() {
+            orderItemsContainer.innerHTML = ''; // Clear previous items
+
+            if (cart.length === 0) {
+                orderEmptyMessage.textContent = "Your cart is empty.";
+                paymentButton.disabled = true; // Disable payment if cart is empty
+            } else {
+                 orderEmptyMessage.style.display = 'none'; // Hide empty message
+                 cart.forEach(item => {
+                    const price = item.price || item.Price || 0;
+                    const name = item.name || item.Name || 'Unnamed Product';
+                    const itemTotal = Number(price) * item.quantity;
+
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'flex justify-between items-center text-sm'; // Smaller text for summary
+                    itemElement.innerHTML = `
+                        <div>
+                            <span class="font-medium">${name}</span>
+                            <span class="text-gray-500"> x ${item.quantity}</span>
+                        </div>
+                        <span>₹${itemTotal.toFixed(2)}</span>
+                    `;
+                    orderItemsContainer.appendChild(itemElement);
+                });
+            }
+
+            const subtotal = cart.reduce((total, item) => {
+                 const price = item.price || item.Price || 0;
+                 return total + (Number(price) * item.quantity);
+             }, 0);
+            const shipping = cart.length > 0 ? 50 : 0; // Example fixed shipping
+            const total = subtotal + shipping;
+
+            subtotalEl.textContent = `₹${subtotal.toFixed(2)}`;
+            shippingEl.textContent = `₹${shipping.toFixed(2)}`;
+            totalEl.textContent = `₹${total.toFixed(2)}`;
+
+            // Enable button only if cart has items and user is logged in (checked later)
+            // paymentButton.disabled = cart.length === 0;
+        }
+
+        async function checkAuthStateAndProceed() {
+             authStatusEl.textContent = 'Checking...';
+             paymentButton.disabled = true; // Disable while checking
+             const { data: { session }, error } = await supabaseClient.auth.getSession();
+
+             if (error || !session?.user) {
+                 console.error("Auth Error or No Session:", error);
+                 authStatusEl.innerHTML = `<a href="login.html?redirect=payment.html" class="text-red-500 font-semibold hover:underline">Please Login</a>`;
+                 // Redirect to login, passing the current page as a parameter
+                 alert("You must be logged in to complete the purchase.");
+                 window.location.href = `login.html?redirect=${encodeURIComponent(window.location.pathname + window.location.search)}`;
+                 return false; // Indicate user is not logged in
+             } else {
+                 // User is logged in
+                 console.log("User verified:", session.user);
+                 authStatusEl.textContent = `Logged in as ${session.user.email}`;
+                 // Pre-fill email if possible
+                 const emailInput = document.getElementById('email');
+                 if (emailInput && !emailInput.value) { // Don't overwrite if user typed something
+                    emailInput.value = session.user.email;
+                 }
+                 // Enable payment button only if cart has items
+                 paymentButton.disabled = cart.length === 0;
+                 return true; // Indicate user is logged in
+             }
+        }
+
+         // --- Placeholder Payment Processing ---
+         // Replace this with actual Stripe/Razorpay integration
+         async function handlePaymentSubmission(event) {
+             event.preventDefault();
+             setLoading(true);
+
+            // --- THIS IS WHERE SECURE PAYMENT LOGIC GOES ---
+            // 1. Create Payment Intent on your backend (Supabase Function)
+            // 2. Use Stripe.js/Razorpay SDK to confirm the payment on the frontend
+            // 3. Handle success or failure
+
+             // --- START: Example (Insecure - Do Not Use in Production) ---
+             console.log('Simulating payment processing...');
+             // Collect billing/shipping data (already done via form)
+              const shippingInfo = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                phone: document.getElementById('phone').value,
+             };
+              // In a real scenario, you'd associate this order with the logged-in user ID
+              const { data: { session } } = await supabaseClient.auth.getSession();
+              const userId = session?.user?.id;
+
+             // Simulate waiting for payment
+             await new Promise(resolve => setTimeout(resolve, 2000));
+
+             // Simulate success
+             console.log('Payment successful (simulation)');
+             // TODO: Save order details to Supabase database (e.g., an 'orders' table)
+             // associate order with userId, store shippingInfo, cart items, total price.
+
+             localStorage.removeItem('kavakCart'); // Clear cart
+             alert('Order placed successfully! (Simulation)');
+             window.location.href = 'index.html'; // Redirect to home/thank you page
+             // --- END: Example ---
+
+             setLoading(false);
+         }
+
+         function setLoading(isLoading) {
+             if (isLoading) {
+                 paymentButton.disabled = true;
+                 document.getElementById("spinner").classList.remove("hidden");
+                 document.getElementById("button-text").classList.add("hidden");
+             } else {
+                 paymentButton.disabled = cart.length === 0; // Re-enable based on cart status
+                 document.getElementById("spinner").classList.add("hidden");
+                 document.getElementById("button-text").classList.remove("hidden");
+             }
+         }
+
+        // --- EVENT LISTENERS ---
+        paymentForm.addEventListener('submit', handlePaymentSubmission);
+
+
+        // --- INITIALIZATION ---
+        updateOrderSummary(); // Display items and totals from localStorage
+        checkAuthStateAndProceed(); // Verify user is logged in before enabling payment
+
+    </script>
+</body>
+</html>
