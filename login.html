@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,23 +22,45 @@
         }
     </script>
 </head>
-<body class="bg-brand-off-white min-h-screen flex items-center justify-center">
-    <div class="container mx-auto px-4">
+
+<body class="bg-brand-off-white min-h-screen flex flex-col">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <div class="container mx-auto px-4 flex-grow flex items-center justify-center">
         <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="flex">
-                <button id="loginTab" class="w-1/2 py-4 text-center font-semibold text-gray-800 bg-white transition focus:outline-none border-b-2 border-brand-green">Login</button>
-                <button id="signupTab" class="w-1/2 py-4 text-center font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition focus:outline-none border-b">Sign Up</button>
+                <button id="loginTab"
+                    class="w-1/2 py-4 text-center font-semibold text-gray-800 bg-white transition focus:outline-none border-b-2 border-brand-green">Login</button>
+                <button id="signupTab"
+                    class="w-1/2 py-4 text-center font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition focus:outline-none border-b">Sign
+                    Up</button>
             </div>
 
             <!-- Login Form -->
             <div id="loginForm" class="p-8">
-                 <!-- OAuth Buttons -->
-                 <div class="space-y-3 mb-6">
-                    <button id="google-login-btn" class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-lg transition duration-300 hover:bg-gray-100">
-                       <svg class="w-5 h-5 mr-2" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.53-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
-                       Login with Google
-                   </button>
-                   <!-- Add other OAuth providers here -->
+                <!-- OAuth Buttons -->
+                <div class="space-y-3 mb-6">
+                    <button id="google-login-btn"
+                        class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-lg transition duration-300 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 48 48">
+                            <path fill="#EA4335"
+                                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z">
+                            </path>
+                            <path fill="#4285F4"
+                                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.53-4.18 7.09-10.36 7.09-17.65z">
+                            </path>
+                            <path fill="#FBBC05"
+                                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z">
+                            </path>
+                            <path fill="#34A853"
+                                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z">
+                            </path>
+                            <path fill="none" d="M0 0h48v48H0z"></path>
+                        </svg>
+                        Login with Google
+                    </button>
+                    <!-- Add other OAuth providers here -->
                 </div>
                 <div class="relative flex items-center justify-center mb-6">
                     <span class="absolute inset-x-0 h-px bg-gray-300"></span>
@@ -46,16 +69,22 @@
 
                 <form id="login" class="space-y-6">
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="login-email">Email Address</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="login-email" type="email" required>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="login-email">Email
+                            Address</label>
+                        <input
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green"
+                            id="login-email" type="email" required>
                     </div>
                     <div>
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="login-password">Password</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="login-password" type="password" required>
+                        <input
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green"
+                            id="login-password" type="password" required>
                     </div>
                     <div id="login-message" class="text-sm text-red-500 text-center min-h-[1.25rem]"></div>
                     <div>
-                        <button type="submit" class="w-full bg-brand-green text-white py-3 px-4 rounded-md hover:bg-brand-light-green transition">Login</button>
+                        <button type="submit"
+                            class="w-full bg-brand-green text-white py-3 px-4 rounded-md hover:bg-brand-light-green transition">Login</button>
                     </div>
                 </form>
             </div>
@@ -63,40 +92,64 @@
             <!-- Signup Form -->
             <div id="signupForm" class="p-8 hidden">
                 <!-- Add OAuth buttons here too if desired -->
-                 <div class="space-y-3 mb-6">
-                    <button id="google-signup-btn" class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-lg transition duration-300 hover:bg-gray-100">
-                       <svg class="w-5 h-5 mr-2" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.53-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
-                       Sign Up with Google
-                   </button>
+                <div class="space-y-3 mb-6">
+                    <button id="google-signup-btn"
+                        class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-lg transition duration-300 hover:bg-gray-100">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 48 48">
+                            <path fill="#EA4335"
+                                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z">
+                            </path>
+                            <path fill="#4285F4"
+                                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.53-4.18 7.09-10.36 7.09-17.65z">
+                            </path>
+                            <path fill="#FBBC05"
+                                d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z">
+                            </path>
+                            <path fill="#34A853"
+                                d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z">
+                            </path>
+                            <path fill="none" d="M0 0h48v48H0z"></path>
+                        </svg>
+                        Sign Up with Google
+                    </button>
                 </div>
-                 <div class="relative flex items-center justify-center mb-6">
+                <div class="relative flex items-center justify-center mb-6">
                     <span class="absolute inset-x-0 h-px bg-gray-300"></span>
                     <span class="relative bg-white px-4 text-sm text-gray-500">OR</span>
                 </div>
                 <form id="signup" class="space-y-6">
                     <!-- Name field removed for simplicity, Supabase Auth only needs email/pass -->
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="signup-email">Email Address</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="signup-email" type="email" required>
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="signup-email">Email
+                            Address</label>
+                        <input
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green"
+                            id="signup-email" type="email" required>
                     </div>
                     <div>
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="signup-password">Password (min. 6 characters)</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green" id="signup-password" type="password" required minlength="6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="signup-password">Password (min. 6
+                            characters)</label>
+                        <input
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-light-green"
+                            id="signup-password" type="password" required minlength="6">
                     </div>
-                     <div id="signup-message" class="text-sm text-red-500 text-center min-h-[1.25rem]"></div>
+                    <div id="signup-message" class="text-sm text-red-500 text-center min-h-[1.25rem]"></div>
                     <div>
-                        <button type="submit" class="w-full bg-brand-green text-white py-3 px-4 rounded-md hover:bg-brand-light-green transition">Sign Up</button>
+                        <button type="submit"
+                            class="w-full bg-brand-green text-white py-3 px-4 rounded-md hover:bg-brand-light-green transition">Sign
+                            Up</button>
                     </div>
                 </form>
             </div>
-             <p class="text-center pb-6">
+            <p class="text-center pb-6">
                 <a href="index.html" class="text-sm text-gray-500 hover:text-brand-green">&larr; Back to Shop</a>
-             </p>
+            </p>
         </div>
     </div>
 
     <!-- Supabase Client Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/navbar.js"></script>
 
     <script>
         // --- SUPABASE CLIENT INITIALIZATION ---
@@ -105,6 +158,33 @@
 
         if (!window.supabase) { console.error("Supabase not loaded"); }
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Initialize Navbar
+        document.addEventListener('DOMContentLoaded', async () => {
+            const navbarManager = new NavbarManager();
+            await navbarManager.init(supabaseClient);
+        });
+
+        // Check if user is already logged in
+        (async function checkSession() {
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            if (session) {
+                // User is already logged in, redirect to cart
+                window.location.href = 'cart.html';
+            }
+        })();
+
+        // Listen for auth state changes
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            console.log('Auth state changed:', event, session);
+            if (event === 'SIGNED_IN' && session) {
+                // Store user info in localStorage for quick access
+                localStorage.setItem('user', JSON.stringify(session.user));
+                window.location.href = 'cart.html';
+            } else if (event === 'SIGNED_OUT') {
+                localStorage.removeItem('user');
+            }
+        });
 
         // --- ELEMENTS ---
         const loginTab = document.getElementById('loginTab');
@@ -128,19 +208,19 @@
         }
 
         async function handleOAuthLogin(provider) {
-             showLoginMessage(''); showSignupMessage(''); // Clear messages
-             const { data, error } = await supabaseClient.auth.signInWithOAuth({
-                 provider: provider,
-                 options: {
-                     // Redirect back to the cart page after successful login/signup
-                     redirectTo: window.location.origin + '/cart.html'
-                 }
-              });
-             if (error) {
+            showLoginMessage(''); showSignupMessage('');
+            const { data, error } = await supabaseClient.auth.signInWithOAuth({
+                provider: provider,
+                options: {
+                    redirectTo: window.location.origin + '/cart.html',
+                    skipBrowserRedirect: false
+                }
+            });
+            if (error) {
+                console.error('OAuth Error:', error);
                 showLoginMessage(`OAuth Error: ${error.message}`);
                 showSignupMessage(`OAuth Error: ${error.message}`);
-             }
-             // Supabase handles the redirection
+            }
         }
 
         // --- EVENT LISTENERS ---
@@ -167,61 +247,87 @@
         // Login Form Submission
         document.getElementById('login').addEventListener('submit', async (e) => {
             e.preventDefault();
-            showLoginMessage(''); // Clear previous messages
+            showLoginMessage('');
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
             const submitButton = e.target.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.textContent = 'Logging in...';
 
-            const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+            try {
+                const { data, error } = await supabaseClient.auth.signInWithPassword({
+                    email,
+                    password
+                });
 
-            if (error) {
-                showLoginMessage(error.message);
-            } else {
-                showLoginMessage('Login successful! Redirecting...', false);
-                // Redirect to cart page after successful login
-                window.location.href = 'cart.html';
+                if (error) throw error;
+
+                if (data.session) {
+                    showLoginMessage('Login successful! Redirecting...', false);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    // Wait a moment before redirect
+                    setTimeout(() => {
+                        window.location.href = 'cart.html';
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showLoginMessage(error.message || 'Login failed. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Login';
             }
-            submitButton.disabled = false;
-            submitButton.textContent = 'Login';
         });
 
         // Signup Form Submission
         document.getElementById('signup').addEventListener('submit', async (e) => {
             e.preventDefault();
-            showSignupMessage(''); // Clear previous messages
-            // const name = document.getElementById('signup-name').value; // Name not needed for basic Supabase signup
+            showSignupMessage('');
             const email = document.getElementById('signup-email').value;
             const password = document.getElementById('signup-password').value;
             const submitButton = e.target.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.textContent = 'Signing up...';
 
+            try {
+                const { data, error } = await supabaseClient.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        emailRedirectTo: window.location.origin + '/cart.html'
+                    }
+                });
 
-            const { data, error } = await supabaseClient.auth.signUp({ email, password });
+                if (error) throw error;
 
-            if (error) {
-                showSignupMessage(error.message);
-            } else {
-                 // Important: Check if email confirmation is required in Supabase settings
-                 if (data?.user?.identities?.length === 0) {
-                     showSignupMessage("Signup successful! Please check your email to verify your account.", false);
-                     // Optionally redirect or just inform the user
-                 } else {
-                      // If auto-confirm is on or email already verified (e.g., OAuth signup)
-                      showSignupMessage("Signup successful! Redirecting...", false);
-                      window.location.href = 'cart.html'; // Redirect to cart
-                 }
+                // Check if email confirmation is required
+                if (data?.user?.identities?.length === 0) {
+                    showSignupMessage("A user with this email already exists. Please login or use a different email.", true);
+                } else if (data?.user && !data?.session) {
+                    // Email confirmation required
+                    showSignupMessage("Signup successful! Please check your email to verify your account.", false);
+                } else if (data?.session) {
+                    // Auto-confirmed (check Supabase settings: Authentication > Settings > Enable email confirmations)
+                    showSignupMessage("Signup successful! Redirecting...", false);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    setTimeout(() => {
+                        window.location.href = 'cart.html';
+                    }, 500);
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                showSignupMessage(error.message || 'Signup failed. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Sign Up';
             }
-            submitButton.disabled = false;
-            submitButton.textContent = 'Sign Up';
         });
 
         // OAuth Button Listeners
         if (googleLoginBtn) googleLoginBtn.addEventListener('click', () => handleOAuthLogin('google'));
-        if (googleSignupBtn) googleSignupBtn.addEventListener('click', () => handleOAuthLogin('google')); // Same function for signup
+        if (googleSignupBtn) googleSignupBtn.addEventListener('click', () => handleOAuthLogin('google'));
 
     </script>
 </body>
+
 </html>

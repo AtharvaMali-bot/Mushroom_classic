@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +22,7 @@
         }
     </script>
 </head>
+
 <body class="bg-brand-off-white">
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
@@ -30,15 +32,16 @@
             </a>
             <div class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="text-gray-600 hover:text-brand-green transition">Home</a>
-                 <!-- Add Login/Logout Status -->
-                 <span id="auth-status" class="text-gray-600"></span>
+                <!-- Add Login/Logout Status -->
+                <span id="auth-status" class="text-gray-600"></span>
             </div>
-             <!-- Mobile Menu Button (Optional, if needed) -->
+            <!-- Mobile Menu Button (Optional, if needed) -->
         </nav>
     </header>
 
     <main class="container mx-auto px-4 py-8">
-        <a href="index.html" class="mb-8 inline-block text-brand-green hover:text-brand-light-green transition font-semibold">
+        <a href="index.html"
+            class="mb-8 inline-block text-brand-green hover:text-brand-light-green transition font-semibold">
             &larr; Back to Shop
         </a>
         <h1 class="text-3xl font-bold text-gray-800 mb-8">Your Shopping Cart</h1>
@@ -48,7 +51,7 @@
             <div class="md:col-span-2">
                 <div id="cart-items" class="space-y-4">
                     <!-- Cart items will be dynamically inserted here -->
-                     <p id="cart-empty-message" class="text-gray-500 text-center py-8 hidden">Your cart is empty</p>
+                    <p id="cart-empty-message" class="text-gray-500 text-center py-8 hidden">Your cart is empty</p>
                 </div>
             </div>
 
@@ -75,13 +78,15 @@
                     <!-- Auth Check Section -->
                     <div id="auth-check-loading" class="text-center text-gray-500 my-4">Checking login status...</div>
                     <div id="checkout-actions" class="hidden"> <!-- Hide actions until auth check is done -->
-                        <button id="checkout-button" class="w-full bg-brand-green text-white py-3 rounded-md hover:bg-brand-light-green transition disabled:opacity-50 disabled:cursor-not-allowed">
+                        <button id="checkout-button"
+                            class="w-full bg-brand-green text-white py-3 rounded-md hover:bg-brand-light-green transition disabled:opacity-50 disabled:cursor-not-allowed">
                             Proceed to Checkout
                         </button>
                         <p id="login-prompt" class="text-center text-sm text-red-500 mt-2 hidden">
                             Please <a href="login.html" class="underline font-semibold">login or sign up</a> to proceed.
                         </p>
-                        <button id="logout-button" class="w-full text-center text-red-500 hover:underline mt-4 text-sm hidden">
+                        <button id="logout-button"
+                            class="w-full text-center text-red-500 hover:underline mt-4 text-sm hidden">
                             Log Out
                         </button>
                     </div>
@@ -124,7 +129,7 @@
             if (cart.length === 0) {
                 cartEmptyMessage.classList.remove('hidden');
             } else {
-                 cartEmptyMessage.classList.add('hidden');
+                cartEmptyMessage.classList.add('hidden');
                 cart.forEach((item, index) => {
                     const price = item.price || item.Price || 0; // Handle potential case mismatch
                     const name = item.name || item.Name || 'Unnamed Product';
@@ -180,9 +185,9 @@
 
         function updateTotals() {
             const subtotal = cart.reduce((total, item) => {
-                 const price = item.price || item.Price || 0;
-                 return total + (Number(price) * item.quantity);
-             }, 0);
+                const price = item.price || item.Price || 0;
+                return total + (Number(price) * item.quantity);
+            }, 0);
             const shipping = cart.length > 0 ? 50 : 0; // Example fixed shipping
             const total = subtotal + shipping;
 
@@ -208,19 +213,19 @@
             if (error) {
                 console.error("Error checking auth status:", error);
                 // Assume logged out on error, prompt login if cart has items
-                 if (cart.length > 0) loginPrompt.classList.remove('hidden');
-                 authStatusEl.innerHTML = `<a href="login.html" class="text-brand-green font-semibold hover:underline">Login</a>`;
+                if (cart.length > 0) loginPrompt.classList.remove('hidden');
+                authStatusEl.innerHTML = `<a href="login.html" class="text-brand-green font-semibold hover:underline">Login</a>`;
             } else if (session?.user) {
                 // User is logged in
                 console.log("User logged in:", session.user);
-                 authStatusEl.textContent = `Logged in as ${session.user.email}`;
-                 logoutButton.classList.remove('hidden'); // Show logout button
+                authStatusEl.textContent = `Hello ${session.user.user_metadata.name || session.user.email}`;
+                logoutButton.classList.remove('hidden'); // Show logout button
 
-                 if (cart.length > 0) {
-                     checkoutButton.disabled = false; // Enable checkout only if cart has items
-                 } else {
-                      checkoutButton.disabled = true; // Disable if cart is empty
-                 }
+                if (cart.length > 0) {
+                    checkoutButton.disabled = false; // Enable checkout only if cart has items
+                } else {
+                    checkoutButton.disabled = true; // Disable if cart is empty
+                }
             } else {
                 // User is logged out
                 console.log("User logged out");
@@ -232,31 +237,31 @@
         }
 
         async function handleLogout() {
-             const { error } = await supabaseClient.auth.signOut();
-             if (error) {
-                 console.error("Logout error:", error);
-                 alert("Error logging out. Please try again.");
-             } else {
-                 console.log("Logged out successfully");
-                 checkAuthState(); // Re-check auth state to update UI
-             }
+            const { error } = await supabaseClient.auth.signOut();
+            if (error) {
+                console.error("Logout error:", error);
+                alert("Error logging out. Please try again.");
+            } else {
+                console.log("Logged out successfully");
+                checkAuthState(); // Re-check auth state to update UI
+            }
         }
 
 
         // --- EVENT LISTENERS ---
         checkoutButton.addEventListener('click', () => {
-             // Re-verify login before proceeding (optional but good practice)
-             supabaseClient.auth.getSession().then(({ data: { session } }) => {
-                 if (session?.user && cart.length > 0) {
-                     window.location.href = 'payment.html';
-                 } else if (cart.length === 0) {
-                     alert("Your cart is empty.");
-                 }
-                 else {
-                     loginPrompt.classList.remove('hidden');
-                     alert("Please log in to proceed.");
-                 }
-             });
+            // Re-verify login before proceeding (optional but good practice)
+            supabaseClient.auth.getSession().then(({ data: { session } }) => {
+                if (session?.user && cart.length > 0) {
+                    window.location.href = 'payment.html';
+                } else if (cart.length === 0) {
+                    alert("Your cart is empty.");
+                }
+                else {
+                    loginPrompt.classList.remove('hidden');
+                    alert("Please log in to proceed.");
+                }
+            });
         });
 
         logoutButton.addEventListener('click', handleLogout);
@@ -268,4 +273,5 @@
 
     </script>
 </body>
+
 </html>

@@ -1,0 +1,184 @@
+<header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="Gayatrilogo.jpg" alt="Kavak Culture Logo" class="h-12 w-auto">
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html#home" class="text-gray-600 hover:text-brand-green transition">Home</a>
+            <a href="index.html#about" class="text-gray-600 hover:text-brand-green transition">About</a>
+            <a href="index.html#products" class="text-gray-600 hover:text-brand-green transition">Products</a>
+            <a href="index.html#visit" class="text-gray-600 hover:text-brand-green transition">Book a Visit</a>
+            <a href="index.html#contact" class="text-gray-600 hover:text-brand-green transition">Contact</a>
+            <a href="cart.html" class="text-gray-600 hover:text-brand-green transition">Cart</a>
+        </div>
+        <div class="flex items-center gap-3">
+            <button id="cart-modal-button" class="relative p-2 rounded-full hover:bg-gray-100 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span id="cart-count"
+                    class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </button>
+
+            <!-- User Profile / Login Button -->
+            <div id="auth-section" class="relative">
+                <!-- Show when NOT logged in -->
+                <a id="login-link" href="login.html"
+                    class="hidden text-gray-600 hover:text-brand-green transition font-medium px-4 py-2 border border-brand-green rounded-lg hover:bg-brand-green hover:text-white">
+                    Login
+                </a>
+
+                <!-- Show when logged in -->
+                <div id="user-profile" class="hidden relative">
+                    <button id="user-menu-button" class="user-avatar">
+                        <img id="user-avatar-img" src="" alt="User Avatar" class="hidden">
+                        <div id="user-initials" class="user-initials hidden">??</div>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="user-dropdown" class="dropdown-menu">
+                        <div class="dropdown-item border-b border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <div class="user-avatar" style="width: 36px; height: 36px; font-size: 12px;">
+                                    <img id="dropdown-avatar-img" src="" alt="" class="hidden">
+                                    <div id="dropdown-initials" class="user-initials hidden">??</div>
+                                </div>
+                                <div class="flex-1">
+                                    <div id="user-full-name" class="font-semibold text-sm">Loading...</div>
+                                    <div id="user-email" class="text-xs text-gray-500">user@example.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="cart.html" class="dropdown-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                            <span>My Orders</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button id="logout-button" class="dropdown-item text-red-600 w-full text-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                            <span>Sign Out</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden ml-2 p-2 rounded-md hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
+        <a href="index.html#home" class="block text-gray-600 hover:text-brand-green transition">Home</a>
+        <a href="index.html#about" class="block text-gray-600 hover:text-brand-green transition">About</a>
+        <a href="index.html#products" class="block text-gray-600 hover:text-brand-green transition">Products</a>
+        <a href="index.html#visit" class="block text-gray-600 hover:text-brand-green transition">Book a Visit</a>
+        <a href="index.html#contact" class="block text-gray-600 hover:text-brand-green transition">Contact</a>
+        <a href="cart.html" class="block text-gray-600 hover:text-brand-green transition">Cart</a>
+        <div id="mobile-auth-section">
+            <a id="mobile-login-link" href="login.html"
+                class="block text-gray-600 hover:text-brand-green transition">Login</a>
+            <button id="mobile-logout-button"
+                class="hidden block text-red-600 hover:text-red-700 transition w-full text-left">Sign Out</button>
+        </div>
+    </div>
+</header>
+
+<style>
+    /* User Avatar Styles */
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .user-avatar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 3px rgba(137, 168, 138, 0.3);
+    }
+
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .user-initials {
+        background: linear-gradient(135deg, #4A6B4C, #89A88A);
+        color: white;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        margin-top: 0.5rem;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+
+    .dropdown-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-item {
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: #374151;
+        transition: background 0.2s;
+        cursor: pointer;
+    }
+
+    .dropdown-item:hover {
+        background: #F3F4F6;
+    }
+
+    .dropdown-item:first-child {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+
+    .dropdown-item:last-child {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+
+    .dropdown-divider {
+        height: 1px;
+        background: #E5E7EB;
+        margin: 0.5rem 0;
+    }
+</style>
